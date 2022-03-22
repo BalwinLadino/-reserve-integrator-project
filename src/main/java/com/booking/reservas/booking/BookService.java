@@ -10,7 +10,7 @@ public interface BookService
 {
     Booking create(Booking booking); //Crear reserva
     Booking findByID (String id); //Consultar
-
+    Booking findByEmail(String email);
     Booking updateDateTime (String id, Date date); //Actualizar fecha y hora
     Booking updateEmail (String id, String email); // Actualizar Email
     Booking updatePhone (String id, long phone);  // Actualizar Numero cel
@@ -19,5 +19,6 @@ public interface BookService
 
     boolean delete (String id); // Eliminar reserva
     List<Booking> all();
+
 
 }

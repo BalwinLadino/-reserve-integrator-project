@@ -90,4 +90,9 @@ public class BookArray implements BookService
         return booksList;
     }
 
+    @Override
+    public Booking findByEmail(String email) {
+        return null;
+    }
+
 }

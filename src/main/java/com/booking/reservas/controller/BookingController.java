@@ -5,12 +5,13 @@ import com.booking.reservas.model.Booking;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.Date;
 import java.util.List;
 
 
 @RestController
-@RequestMapping("booking")
+@RequestMapping("/booking")
 public class BookingController
 {
 
@@ -40,6 +41,7 @@ public class BookingController
    }
 
    @DeleteMapping("/{id}")
+   @RolesAllowed("ADMIN")
     boolean delete(@PathVariable ("id") String id){
         return  bookService.delete(id);
    }

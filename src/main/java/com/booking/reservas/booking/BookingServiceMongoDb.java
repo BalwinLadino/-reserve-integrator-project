@@ -1,5 +1,6 @@
 package com.booking.reservas.booking;
 
+import com.booking.reservas.exception.BookingNotFoundException;
 import com.booking.reservas.model.Booking;
 import com.booking.reservas.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class BookingServiceMongoDb implements BookService
 {
@@ -28,6 +31,20 @@ public class BookingServiceMongoDb implements BookService
         return null;
     }
 
+    @Override
+    public Booking findByEmail( String email )
+            throws BookingNotFoundException
+    {
+        Optional<Booking> optionalUser = bookingRepository.findByEmail( email );
+        if ( optionalUser.isPresent() )
+        {
+            return optionalUser.get();
+        }
+        else
+        {
+            throw new BookingNotFoundException();
+        }
+    }
     @Override
     public Booking updateDateTime(String id, Date date) {
         return null;
@@ -52,4 +69,6 @@ public class BookingServiceMongoDb implements BookService
     public List<Booking> all() {
         return null;
     }
+
+
 }

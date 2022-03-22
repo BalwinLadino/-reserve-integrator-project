@@ -81,4 +81,9 @@ public class BookingServiceHashMap implements BookService
     public List<Booking> all() {
         return  new ArrayList<>(bookingHashMap.values());
     }
+
+    @Override
+    public Booking findByEmail(String email) {
+        return null;
+    }
 }

@@ -9,6 +9,7 @@ public class BookingDto {
     private String email;
     private long phone;
     private Date date;
+    String password;
 
 
 
@@ -31,6 +32,7 @@ public class BookingDto {
         return date;
     }
 
-
-
+    public String getPassword() {
+        return password;
+    }
 }
